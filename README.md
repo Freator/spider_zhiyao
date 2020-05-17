@@ -20,5 +20,5 @@ Python爬虫在笔者学习Python时接触过并且也使用过（见 [豆瓣数
 
 
 
-@Author:[Freator Tang](https://github.com/Freator)
- @Email:[bingcongtang@gmail.com](mailto:bingcongtang@gmail.com)
+@Author:[Freator Tang](https://github.com/Freator)  
+@Email:[bingcongtang@gmail.com](mailto:bingcongtang@gmail.com)
