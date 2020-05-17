@@ -190,9 +190,6 @@ def main(begin_url):
 
 
 if __name__ == '__main__':
-    # url = 'http://www.cbaigui.com/?page_id=1111111111'
     url = 'http://www.cbaigui.com/?page_id=11600'
     sys.exit(main(url))
 
-# 2020/5/15 00:25 已经可以抓取每个类别下面第一页的数据了
-# 2020/5/15 9:50 现在要开始爬取每个类别下的多页数据，或者先找到某个页面下的多个页面
