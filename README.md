@@ -44,7 +44,25 @@ Python爬虫在笔者学习Python时接触过并且也使用过（见 [豆瓣数
 
 ### 网页源码分析
 
-（To be continued）
+#### 目录页面
+
+打开开发者模式(`Chrome`和`Firefox`都可以直接按`F12`打开)，刷新当前页面，可以看到该网页是以`GET`方式请求得到的，并且是一个简单的`HTML`页面
+
+![html_analysis1](./pictures/html_analysis1.png)
+
+然后我们转到`Elements`中，看到我们需要爬取的内容，通过标签一级一级找下来，都在`class="entry themeform"`的`div`标签中，如下图所示
+
+![html_analysis2](./pictures/html_analysis2.png)
+
+然后，我们再打开比如`B`类下的`table`标签，可以看到里面的内容，就是包含这个内容索引下的所有书名目录，这些是我们需要爬取并保存的内容
+
+![html_analysis3](./pictures/html_analysis3.png)
+
+这里我们需要爬取每一个书名目录所属的字母索引，每个书名目录的名称和对应的`URL`备用，可以从图中看到每一个书名目录是包含在`strong`标签下的，所以就找到这个标签下的所有`a`标签，保存该标签的`href`属性和标签内容就行（当然也有其他方式方法可以找这些数据）
+
+#### 书名目录页面
+
+还是以`白泽图`为例，同样可以看到是以`GET`请求获取的`HTML`内容。
 
 ### 爬取程序
 
