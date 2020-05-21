@@ -10,25 +10,29 @@ Python爬虫在笔者学习Python时接触过并且也使用过（见 [豆瓣数
 
 首先，我们进入到知妖网站的主页，可以看到，主页上主要分为`首页`、`目录`、`杂谈`、`夜谭`、`关于`等5个板块，在主页（即首页）上，各种妖怪们按顺序排列，每页大概20来个，目前一共85页。
 
-[Insert an image]
+![网站主页](./pictures/zhiyao_MainPage.png)
 
 当然可以按照这个页数来爬取每一个妖怪的数据，但是本次我们是分目录爬取的，即先进入`目录`页面。
 
-[insert an image]
+![目录页面](./pictures/zhiyao_category_list.png)
 
 可以看到各个按照字母索引的书名目录。每一个书名点进去就是这个书名下包含的妖怪们，如 `白泽图` ，点进去是这样的
 
-[insert an image]
+![目录内容](./pictures/zhiyao_category_show.png)
 
 在这个页面上，我们可以看到这个书名目录下包含的每一个妖怪的一些基本数据，本次所需要爬取的数据如标注所示
 
-[insert an image]
+![妖怪列表](./pictures/zhiyao_article_list.png)
 
 其中`[1][2][3]`部分是我们需要爬取的数据，分别表示该妖怪发表的日期，该妖怪的名字和该妖怪的评论数量。（其他数据也可以按照自己的需求进行爬取）
 
 然后点进一个妖怪，进入到这个妖怪的介绍页面，如 `升卿` ，点进去之后，可以看到它的介绍，包括`发表日期`（所以日期数据在这里也可以获取），图片（部分有部分没有）、出处及原文描述，下面还有`获赞数量`，该妖怪所属的`Tags`，以及具体的评论文字（评论没有分页展示，需要爬取的话也比较方便）
 
-[insert images]  
+![妖怪展示页面](./pictures/zhiyao_article_show1.png)
+
+![妖怪展示页面](./pictures/zhiyao_article_show2.png)
+
+![妖怪展示页面](./pictures/zhiyao_article_show3.png)
 
 ### 爬取简单流程
 
@@ -48,7 +52,7 @@ Python爬虫在笔者学习Python时接触过并且也使用过（见 [豆瓣数
 
 
 
-@Date : 2020/5/17（Update : 2020/5/20）
+@Date : 2020/5/17（Update : 2020/5/22）
 
 @Author : [Freator Tang](https://github.com/Freator)
 
