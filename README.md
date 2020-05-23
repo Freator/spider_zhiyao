@@ -64,13 +64,31 @@ Python爬虫在笔者学习Python时接触过并且也使用过（见 [豆瓣数
 
 还是以`白泽图`为例，同样可以看到是以`GET`请求获取的`HTML`内容。
 
+![html_analysis4](./pictures/html_analysis4.png)
+
+转到`Elements`下，可以找到需要获取的内容。从图中可以看出，每一个妖怪的数据都在一个`article`标签内。
+
+![html_analysis5](./pictures/html_analysis5.png)
+
+打开其中一个`article`标签，可以看到里面包括我们要获取的日期数据，妖怪姓名，评论数量，以及妖怪的`ID`等。
+
+![html_analysis6](./pictures/html_analysis6.png)
+
+#### 妖怪介绍页面
+
+同样以`升卿`为例，进入到该妖怪的介绍页面，依然是以`GET`方式请求的`HTML`网页。在`Element`中，找到所需要的标签内容，如下图所示。
+
+![html_analysis7](./pictures/html_analysis7.png)
+
+![html_analysis8](./pictures/html_analysis8.png)
+
 ### 爬取程序
 
 （To be continued）
 
 
 
-@Date : 2020/5/17（Update : 2020/5/22）
+@Date : 2020/5/17（Update : 2020/5/23）
 
 @Author : [Freator Tang](https://github.com/Freator)
 
