@@ -84,11 +84,34 @@ Python爬虫在笔者学习Python时接触过并且也使用过（见 [豆瓣数
 
 ## 五 爬取程序
 
-（To be continued）
+程序中主要用到的是`requests`和`beautifulsoup`两个包，当然，还有许多其他的包可以用来做这个项目，有兴趣的可以自行学习和使用。笔者以为，不管是自己一步一步敲出来的爬虫还是运用的一些成熟的爬虫框架，其原理和机制都是差不多的，只要大家根据爬虫原理来做，逻辑上就不会有什么大问题。该爬虫的具体流程可以查看第`三`点说明。下面解释程序中的各个函数功能。
 
++ get_html(current_url)`
 
+该函数用于获取`HTML`网页的文本内容
 
-@Date : 2020/5/17（Update : 2020/5/23）
+参数：网页的`URL`
+
+返回：网页响应状态为`200`时，返回文本内容；否则，返回 None
+
++ find_all_table_data(table_label)
+
+参数：
+
+返回：
+
++ get_article_data(article)
++ get_more_article_data(article_url)
++ jump_to_article_page(article_id)
+
++ get_category(index_url)
++ write_to_file(article_tuple)
++ get_first_page_article(current_category)
++ get_other_page_article(current_category, category_name)
++ get_data(category_list)
++ main(begin_url)
+
+@Date : 2020/5/17（Update : 2020/5/24）
 
 @Author : [Freator Tang](https://github.com/Freator)
 
