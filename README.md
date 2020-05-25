@@ -88,27 +88,54 @@ Python爬虫在笔者学习Python时接触过并且也使用过（见 [豆瓣数
 
 + get_html(current_url)
 
-该函数用于获取`HTML`网页的文本内容
+  该函数用于获取`HTML`网页的文本内容
 
-参数：网页的`URL`
+  参数：网页的`URL`
 
-返回：网页响应状态为`200`时，返回文本内容；否则，返回 None
+  返回：网页响应状态为`200`时，返回文本内容；否则，返回 None
 
 + find_all_table_data(table_label)
 
-参数：
+  该函数用于获取某一个大类索引下的所有目录列表，比如`B`类下的所有书名目录和对应的目录`URL`。
 
-返回：
+  参数：一个`table`标签的内容
+
+  返回：一个`list`，列表元素是由（书名目录名称，书名目录链接）组成的一个`tuple`。
 
 + get_article_data(article)
+
+  该函数用于获取每一个妖怪的数据
+
+  参数：一个`article`标签内容
+
+  返回：一个`tuple`，包括妖怪的各种信息数据(第`三`部分第`5`点)。
+
 + get_more_article_data(article_url)
+
+  该函数从妖怪展示页面获取妖怪的获赞数和`Tags`数据
+
+  参数：妖怪展示页面的`URL`
+
+  返回：`tags_list`, `like_count`，即`Tags`列表和获赞数
+
 + jump_to_article_page(article_id)
 
+  该函数通过妖怪`ID`得到该妖怪的展示页面`URL`并调用`get_more_article_data`函数获取数据
+
+  参数：妖怪`ID`
+
+  返回：同`get_more_article_data`函数
+
 + get_category(index_url)
+
 + write_to_file(article_tuple)
+
 + get_first_page_article(current_category)
+
 + get_other_page_article(current_category, category_name)
+
 + get_data(category_list)
+
 + main(begin_url)
 
 @Date : 2020/5/17（Update : 2020/5/25）
