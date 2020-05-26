@@ -45,13 +45,11 @@ def get_more_article_data(article_url):
     else:
         tags_list = []
     like_count_string = soup.find(attrs={'class': 'like-count'}).string
-    # print(like_count_string)  # 输出查看获得的赞数
     like_count_list = re.findall(r'\d+', like_count_string)  # 如果考虑效率问题，这个和下面的用哪个比较好？值得思考(注意在这里返回只有一个元素)
     if len(like_count_list) == 0:
         like_count = 0
     else:
         like_count = int(like_count_list[0])
-    # like_count = like_count_string.split('(')[1].split(')')[0]  # 是否split的实现也是用了正则表达式？
     return tags_list, like_count
 
 
@@ -102,7 +100,6 @@ def write_to_file(article_tuple):
     like_count = article_tuple[5]  # int
     category_id = article_tuple[6]  # int
     category_name = article_tuple[7]
-    # print(article_id, article_name, post_date, comment_count, tags, like_count, category_id, category_name)
     with open('./cbaigui_data.csv', 'a', encoding='utf-8') as f:
         sep = '\t'  # 注意分隔符的选择
         data = article_id + sep + article_name + sep + str(category_id) + sep + category_name + sep + \
@@ -133,7 +130,6 @@ def get_first_page_article(current_category_url):  # 获取当前页面下的所
     paged_count_string = content.findChild(name='nav').findChild(name='span')
     if paged_count_string is not None:
         paged_count = int(paged_count_string.string.split(' ')[1])
-    # print(paged_count)
     if paged_count > 1:
         for paged in range(2, paged_count+1):
             paged_list.append(cat_url + "&paged=" + str(paged))  # 产生新的一个页面
@@ -158,7 +154,6 @@ def get_other_page_article(current_category_url, category_name):  # 获取当前
 
 
 def get_data(category_list):
-    # test_list = alphabet_index_dict['E']  # 得到某一个字母索引别下的所有类别数据，是一个list
     for each_category in category_list:
         paged_list, cat_name = get_first_page_article(each_category)
         if paged_list is None and cat_name is None:
@@ -178,13 +173,10 @@ def main(begin_url):
         return None
     for current_index in alphabet_index_dict.keys():
         print("Current Index = ", current_index)
-        # print("Current Index = ", 'L')
         status = get_data(alphabet_index_dict[current_index])
-        # status = get_data(alphabet_index_dict['L'])
         if status is False:
             print("Page Not Found！")
         print("--------*** Next ***--------")
-    # get_data(alphabet_index_dict['L'])
     end_time = time()
     print("Time cost: ", end_time-start_time)
 
