@@ -128,17 +128,53 @@ Python爬虫在笔者学习Python时接触过并且也使用过（见 [豆瓣数
 
 + get_category(index_url)
 
+  该函数获取每一个字母索引类别下的书名目录
+
+  参数：目录页面的`URL`
+
+  返回：`Dict`，其中`key`是每个字母，`value`是一个`list`，保存该字母下的所有书名目录
+
 + write_to_file(article_tuple)
 
-+ get_first_page_article(current_category)
+  将每一个妖怪数据写入文件
+
+  参数：`tuple`，包含一个妖怪的所有需要保存的数据
+
++ get_first_page_article(current_category_url)
+
+  获取当前书名目录下的所有`article`标签
+
+  参数：当前书名目录的`URL`
+
+  返回：如果页面存在，则返回`list`，书名目录名称；否则，返回`None`,`None`
 
 + get_other_page_article(current_category, category_name)
 
+  类似于`get_first_page_article`函数，但是这个函数是在该书名目录中的妖怪数量有多页展示时，爬取第`2-last`页面的函数，可以看到参数不一样，这个函数多了一个书名目录名称参数。
+
+  返回：成功，返回`True`页面查找失败返回`False`
+
 + get_data(category_list)
+
+  该函数获通过`main`函数调用，获取每个书名目录的数据
+
+  参数：书名目录`list`
+
+  返回：成功返回`True`；否则返回`False`
 
 + main(begin_url)
 
-@Date : 2020/5/17（Update : 2020/5/25）
+  主函数，通过传入目录页面`URL`，调用`get_data`函数开始爬取和保存数据
+
+## 六 思考
+
+1. python编写程序的规范问题，以及python作为面向对象的语言，如何更规范的编写函数，设定参数，设置返回值等
+2. 效率问题。目前爬虫只是解决了最简单的问题，而且网站的数据量极小，如果遇上大量数据的爬取工作，如果设置更加有效率的爬虫，是否需要使用多线程或者多进程进行爬取数据。
+3. 文件操作。其实还是效率问题，爬取的数据如何高效的保存，写入到文件（包括但不限于txt/csv/excel/json）或者数据库（包括但不限于MySQL/Oracle/MongoDB/Redis/SQL Server）
+4. 容错机制。爬取的过程中，遇到某一个无法访问的页面，或者时该页面下不存在某个标签（实际在爬取过程中确实存在这样的情况），如何设置跳过或者捕获该错误，让程序继续运行，直至数据爬取完成。如果不设置，程序在运行的过程中遇到错误，则会终止运行。
+5. 爬虫终究只是获取数据的一种方式/工具。在获取数据后，如何进行数据处理，利用数据分析现象，发掘有价值的信息，这是笔者以为比较重要和关键的，如果爬取的数据不加以挖掘和分析，数据也只会是数据而已。
+
+@Date : 2020/5/17（Update : 2020/5/27）
 
 @Author : [Freator Tang](https://github.com/Freator)
 
